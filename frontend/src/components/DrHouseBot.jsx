@@ -46,6 +46,9 @@ export default function DrHouseBot({ appState, uploadedFilesCount, formData }) {
 
       setMessage(houseComment);
     }
+    else if (appState === 'error') {
+      setMessage("Terrific. You managed to break the machine. Did you try feeding it ancient Egyptian hieroglyphs, or did your patient discover the elixir of eternal life? Reset the terminal before it catches fire.");
+    }
   }, [appState, uploadedFilesCount, formData]);
 
   return (

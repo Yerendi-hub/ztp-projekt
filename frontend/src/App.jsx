@@ -7,6 +7,7 @@ import DiagnosisReport from './components/DiagnosisReport';
 import DrHouseBot from './components/DrHouseBot';
 import ProgressBar from './components/ProgressBar';
 import { RefreshCw, FileCheck, Users } from 'lucide-react';
+import AnalysisError from './components/AnalysisError';
 
 export default function App() {
   const [appState, setAppState] = useState('closed'); 
@@ -16,8 +17,14 @@ export default function App() {
   const handleRunAnalysis = (formData) => {
     setAppState('analyzing');
     setFinalData(formData);
+    
     setTimeout(() => {
-      setAppState('diagnosis');
+      // wyzwalacz błędu, tj. wiek > 130
+      if (formData && parseInt(formData.age, 10) > 130) {
+        setAppState('error');
+      } else {
+        setAppState('diagnosis');
+      }
     }, 3000);
   };
 
@@ -28,7 +35,6 @@ export default function App() {
   };
 
   return (
-    // główny kontener
     <div className="min-h-screen p-3 md:p-6 font-mono text-[#2d4a43] flex flex-col justify-between select-none relative bg-[#e2decb]">
       
       {/* tło */}
@@ -57,13 +63,14 @@ export default function App() {
                 <p className="text-[10px] md:text-xs opacity-70">AI-Powered Medical Analysis Terminal</p>
               </div>
             </div>
-            {/* reklama się chowa jak ekran za mały */}
             <Advertisement />
           </header>
 
           {/* panel główny */}
           <main className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-stretch mt-4 md:mt-6">
-            {appState !== 'diagnosis' ? (
+            
+            {/* upload + formularz */}
+            {(appState === 'closed' || appState === 'analyzing') && (
               <>
                 {/* strefa uploadu */}
                 <div className="border-2 border-[#497063] p-4 md:p-5 bg-[#f4f1e3] rounded-sm flex flex-col justify-between min-h-[320px] lg:min-h-[500px] shadow-[4px_4px_0px_0px_rgba(45,74,67,0.1)]">
@@ -77,7 +84,7 @@ export default function App() {
                   )}
                 </div>
 
-                {/* formularz z 17 parametrami */}
+                {/* formularz */}
                 <div className="border-2 border-[#497063] p-4 md:p-5 bg-[#f4f1e3] rounded-sm flex flex-col justify-between lg:max-h-[650px] shadow-[4px_4px_0px_0px_rgba(45,74,67,0.1)]">
                   <PatientForm 
                     onSubmit={handleRunAnalysis} 
@@ -87,17 +94,32 @@ export default function App() {
                   />
                 </div>
               </>
-            ) : (
-              /* ekran wynikowy */
-              <div className="lg:col-span-2 flex items-center justify-center w-full py-2">
+            )}
+
+            {/* ekran udanego wyniku */}
+            {appState === 'diagnosis' && (
+              <div className="lg:col-span-2 flex items-center justify-center w-full min-h-[320px] lg:min-h-[500px]">
                 <DiagnosisReport formData={finalData} onReset={handleReset} />
               </div>
             )}
+
+            {/* ekran błędu */}
+            {appState === 'error' && (
+              <div className="lg:col-span-2 flex items-center justify-center w-full min-h-[320px] lg:min-h-[500px]">
+                <div className="w-full max-w-2xl h-full flex items-center justify-center">
+                  <AnalysisError 
+                    errorMessage="CRITICAL DEVIATION: Biological parameters entered violate system baseline configuration. Core execution halted." 
+                    onReset={handleReset} 
+                  />
+                </div>
+              </div>
+            )}
+            
           </main>
         </div>
 
-        {/* stopka*/}
-        <footer className="bg-[#f4f1e3] border-2 border-[#2d4a43] shadow-sm text-xs mt-auto">
+        {/* stopka  */}
+        <footer className="bg-[#f4f1e3] border-2 border-[#2d4a43] shadow-sm text-xs mt-auto shrink-0">
           <div className="flex flex-col md:grid md:grid-cols-3 items-center gap-3 p-3 md:p-4 border-b border-[#2d4a43]/20">
             <div className="text-center md:text-left font-bold tracking-wide text-[11px] md:text-xs">
               Dr.Byte 2026 &copy; All rights reserved.
@@ -112,19 +134,18 @@ export default function App() {
               </span>
             </div>
 
-            {/* dr house bot */}
-            <div className="flex justify-center md:justify-end shrink-0">
+            <div className="w-full max-w-xs md:max-w-sm flex justify-center md:justify-end shrink-0 overflow-hidden">
               <DrHouseBot 
                 appState={appState} 
                 uploadedFilesCount={uploadedFiles.length} 
-                formData={finalData || {}} 
+                formData={{}}
               />
             </div>
 
           </div>
 
-          {/* niższa stopka lol*/}
-          <div className="bg-[#a63a3a]/5 text-[#a63a3a] text-[9px] md:text-[10px] font-bold tracking-wider md:tracking-widest text-center py-2 px-2 uppercase">
+          {/* niższa stopka */}
+          <div className="bg-[#a63a3a]/5 text-[#a63a3a] text-[9px] md:text-[10px] font-bold tracking-wider md:tracking-widest text-center py-2 px-2 uppercase shrink-0">
             [ SYSTEM NOTICE: FOR EDUCATIONAL USE ONLY // NOT FOR REAL CLINICAL DIAGNOSIS ]
           </div>
 

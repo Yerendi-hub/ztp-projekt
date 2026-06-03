@@ -1,39 +1,8 @@
 # ztp-projekt
 
-Projekt trenuje dwa modele sieci neuronowej:
-
-- `diabetes` - predykcja cukrzycy
-- `heart_disease` - predykcja choroby serca
-
-Minimalny wymagany input do predykcji to `age` i `sex`. Pozostałe parametry są opcjonalne.
-
-## Instalacja
-
-```powershell
-py -3.10 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-```
-
-## Trening
-
-```powershell
-python model/train_models.py
-```
-
-Skrypt:
-
-- wczytuje i czyści dane,
-- dzieli dane na train/test,
-- trenuje `MLPClassifier`,
-- zapisuje modele do `model/artifacts/*.joblib`,
-- zapisuje metryki do `model/artifacts/metrics.json`.
-
 ## Predykcja
 
-Backend mapuje request JSON do płaskiego payloadu modelu i przekazuje go do `model/predict.py`.
-
-Przykładowy payload dla modelu `diabetes`:
+Backend mapuje request JSON do płaskiego payloadu modelu i przekazuje go do `model/predict.py`. Przykładowy payload dla modelu `diabetes`:
 
 ```json
 {
@@ -46,7 +15,7 @@ Przykładowy payload dla modelu `diabetes`:
 }
 ```
 
-Wywołanie w backendzie:
+Wywołanie modelu w backendzie:
 
 ```python
 from model.predict import predict
@@ -57,7 +26,7 @@ result = predict({
 })
 ```
 
-Wynik zawiera nazwę modelu, `probability` i `prediction`, gdzie `1` oznacza przewidywaną chorobę. Przykładowy JSON zwrotny to:
+Wynik zawiera nazwę modelu, `probability` i `prediction`, gdzie `1` oznacza chorobę. Przykładowy JSON zwrotny to:
 
 ```json
 {

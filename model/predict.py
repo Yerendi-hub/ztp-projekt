@@ -17,8 +17,6 @@ def predict_one_model(model_name: str, payload: dict[str, Any]) -> dict[str, Any
     model_input = {}
     for feature in model_artifact["required_features"] + model_artifact["optional_features"]:
         feature_value = payload.get(feature, np.nan)
-        if feature_value == "":
-            feature_value = np.nan
         model_input[feature] = feature_value
 
     disease_probability = float(model_artifact["pipeline"].predict_proba(pd.DataFrame([model_input]))[0, 1])
@@ -33,5 +31,4 @@ def predict(payloads: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
     return {
         model_name: predict_one_model(model_name, payloads[model_name])
         for model_name in MODELS
-        if model_name in payloads
     }

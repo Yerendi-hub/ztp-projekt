@@ -41,7 +41,7 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Walidacja T/F na podstawie thresholdu dla cukru na czczo (> 120 mg/dL)
+    // walidacja T/F na podstawie thresholdu dla cukru na czczo (> 120 mg/dL)
     const processedFastingSugar = formData.fastingSugar !== '' 
       ? (Number(formData.fastingSugar) > 120 ? 'true' : 'false')
       : '';
@@ -52,11 +52,10 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
     });
   };
 
-  // Przycisk jest aktywny TYLKO gdy uzupełniono wiek oraz płeć biologiczna
+  // przycisk jest aktywny TYLKO gdy uzupełniono wiek oraz płeć biologiczna
   const hasRequiredFields = formData.age !== '' && formData.sex !== '';
   const isSubmitDisabled = isAnalyzing || !hasRequiredFields;
 
-  // Wspólna klasa dla wszystkich pól wejściowych gwarantująca identyczną wysokość i czcionkę 12px
   const fieldClasses = "w-full h-8 text-[12px] px-1.5 border border-[#2d4a43] bg-white focus:outline-none box-border";
 
   return (

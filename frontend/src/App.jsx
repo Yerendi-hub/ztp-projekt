@@ -127,12 +127,12 @@ export default function App() {
 
             {/* devs */}
             <div className="flex items-center justify-center gap-2 text-[#5b8276] font-bold text-center">
-              <Users className="w-4 h-4 shrink-0" />
-              <span className="text-[#2d4a43]/60 text-[9px] uppercase tracking-wider hidden sm:inline">DEVS:</span>
-              <span className="text-[#2d4a43] tracking-wide text-[11px] md:text-xs break-words">
-                Zuzanna Brauer, Maja Chlipała, Konrad Kowalczyk
-              </span>
-            </div>
+            <Users className="w-4 h-4 shrink-0" />
+            <span className="text-[#2d4a43]/60 text-[13px] uppercase tracking-wider hidden sm:inline">DEVS:</span>
+            <span className="text-[#2d4a43] tracking-wide text-[13px] break-words">
+              Zuzanna Brauer, Maja Chlipała, Konrad Kowalczyk
+            </span>
+          </div>
 
             <div className="w-full max-w-xs md:max-w-sm flex justify-center md:justify-end shrink-0 overflow-hidden">
               <DrHouseBot 
@@ -145,8 +145,8 @@ export default function App() {
           </div>
 
           {/* niższa stopka */}
-          <div className="bg-[#a63a3a]/5 text-[#a63a3a] text-[9px] md:text-[10px] font-bold tracking-wider md:tracking-widest text-center py-2 px-2 uppercase shrink-0">
-            [ SYSTEM NOTICE: FOR EDUCATIONAL USE ONLY // NOT FOR REAL CLINICAL DIAGNOSIS ]
+          <div className="bg-[#a63a3a]/5 text-[#a63a3a] text-[10px] md:text-[10px] font-bold tracking-wider md:tracking-widest text-center py-2 px-2 shrink-0">
+            [ System notice: for educational use only // not for clinical diagnosis ]
           </div>
 
         </footer>

@@ -39,7 +39,7 @@ export default function Advertisement() {
 
       <div className="flex flex-col flex-1 min-w-0">
         <div className={`flex justify-between items-center border-b pb-0.5 mb-1 transition-colors duration-500 ${activeAd.isPromo ? 'border-[#a63a3a]/30' : 'border-[#2d4a43]/20'}`}>
-          <span className="text-[9px] uppercase tracking-wider font-black text-[#a63a3a]">
+          <span className="text-[9px]  tracking-wider font-black text-[#a63a3a]">
             {activeAd.isPromo ? "Partnership" : "Sponsored by"}
           </span>
           <span className={`text-[9px] font-bold transition-colors duration-500 ${activeAd.isPromo ? 'text-[#a63a3a] font-black' : 'opacity-60'}`}>

@@ -68,11 +68,11 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
           <h3 className="text-[14px] font-bold text-[#5b8276] tracking-wider mb-2">&gt; Basic biometrics</h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Age *</label>
+              <label className="block text-[12px]  font-bold mb-1">Age *</label>
               <input type="number" name="age" value={formData.age} onChange={handleChange} disabled={isAnalyzing} placeholder="Years" className={fieldClasses} />
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Biological sex *</label>
+              <label className="block text-[12px]  font-bold mb-1">Biological sex *</label>
               <select name="sex" value={formData.sex} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
                 <option value="">--</option>
                 <option value="M">Male</option>
@@ -80,16 +80,16 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
               </select>
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Weight</label>
+              <label className="block text-[12px]  font-bold mb-1">Weight</label>
               <input type="number" name="weight" value={formData.weight} onChange={handleChange} disabled={isAnalyzing} placeholder="kg" className={fieldClasses} />
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Height</label>
+              <label className="block text-[12px]  font-bold mb-1">Height</label>
               <input type="number" name="height" value={formData.height} onChange={handleChange} disabled={isAnalyzing} placeholder="cm" className={fieldClasses} />
             </div>
           </div>
           <div className="mt-2">
-            <label className="block text-[10px] uppercase font-bold mb-1">Tobacco smoking history</label>
+            <label className="block text-[12px]  font-bold mb-1">Tobacco smoking history</label>
             <select name="smokingHistory" value={formData.smokingHistory} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
               <option value="">Select status</option>
               <option value="never">Never smoked</option>
@@ -107,21 +107,21 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
           <h3 className="text-[14px] font-bold text-[#5b8276] tracking-wider mb-2">&gt; Metabolic & metric blood work</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">HbA1c level (3-month avg)</label>
+              <label className="block text-[12px]  font-bold mb-1">HbA1c level (3-month avg)</label>
               <input type="number" step="0.1" name="hbA1c" value={formData.hbA1c} onChange={handleChange} disabled={isAnalyzing} placeholder="Percentage (%)" className={fieldClasses} />
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Blood glucose level</label>
+              <label className="block text-[12px]  font-bold mb-1">Blood glucose level</label>
               <input type="number" name="bloodGlucose" value={formData.bloodGlucose} onChange={handleChange} disabled={isAnalyzing} placeholder="Sugar (mg/dL)" className={fieldClasses} />
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Fasting blood sugar level</label>
+              <label className="block text-[12px]  font-bold mb-1">Fasting blood sugar level</label>
               <input type="number" name="fastingSugar" value={formData.fastingSugar} onChange={handleChange} disabled={isAnalyzing} placeholder="Fasting Sugar (mg/dL)" className={fieldClasses} />
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Total cholesterol</label>
+              <label className="block text-[12px]  font-bold mb-1">Total cholesterol</label>
               <input type="number" name="cholesterol" value={formData.cholesterol} onChange={handleChange} disabled={isAnalyzing} placeholder="Serum Cholesterol (mg/dL)" className={fieldClasses} />
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
           <h3 className="text-[14px] font-bold text-[#5b8276] tracking-wider mb-2">&gt; Cardiovascular baseline</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Chest pain specification</label>
+              <label className="block text-[12px]  font-bold mb-1">Chest pain specification</label>
               <select name="chestPain" value={formData.chestPain} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
                 <option value="">Select pain type</option>
                 <option value="asymptomatic">Asymptomatic (no pain)</option>
@@ -142,12 +142,12 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
               </select>
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Resting blood ppressure</label>
+              <label className="block text-[12px]  font-bold mb-1">Resting blood ppressure</label>
               <input type="number" name="restingBloodPressure" value={formData.restingBloodPressure} onChange={handleChange} disabled={isAnalyzing} placeholder="Systolic pressure (mmHg)" className={fieldClasses} />
             </div>
           </div>
           <div>
-            <label className="block text-[10px] uppercase font-bold mb-1">Resting ECD</label>
+            <label className="block text-[12px]  font-bold mb-1">Resting ECD</label>
             <select name="restingEcg" value={formData.restingEcg} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
               <option value="">Select observation</option>
               <option value="normal">Normal baseline</option>
@@ -162,11 +162,11 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
           <h3 className="text-[14px] font-bold text-[#5b8276] tracking-wider mb-2">&gt; Stress test & advanced clinical imaging</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Maximum heart rate</label>
+              <label className="block text-[12px]  font-bold mb-1">Maximum heart rate</label>
               <input type="number" name="maxHeartRate" value={formData.maxHeartRate} onChange={handleChange} disabled={isAnalyzing} placeholder="Max HR (bpm)" className={fieldClasses} />
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Exercise induced angina</label>
+              <label className="block text-[12px]  font-bold mb-1">Exercise induced angina</label>
               <select name="exerciseAngina" value={formData.exerciseAngina} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
                 <option value="">Select pain level triggered by exercise</option>
                 <option value="true">True (Yes, pain triggered)</option>
@@ -176,11 +176,11 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">ST Depression (relative to rest)</label>
+              <label className="block text-[12px]  font-bold mb-1">ST Depression (relative to rest)</label>
               <input type="number" step="0.1" name="stDepression" value={formData.stDepression} onChange={handleChange} disabled={isAnalyzing} placeholder="Oldpeak Value" className={fieldClasses} />
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Peak Exercise ST Segment Slope</label>
+              <label className="block text-[12px]  font-bold mb-1">Peak Exercise ST Segment Slope</label>
               <select name="stSlope" value={formData.stSlope} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
                 <option value="">Select slope profile</option>
                 <option value="upsloping">Upsloping (normal / stable)</option>
@@ -191,7 +191,7 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Major vessels (Fluoroscopy)</label>
+              <label className="block text-[12px]  font-bold mb-1">Major vessels (Fluoroscopy)</label>
               <select name="majorVessels" value={formData.majorVessels} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
                 <option value="">Select colored vessels count</option>
                 <option value="0">0 Vessels highlighted</option>
@@ -201,7 +201,7 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
               </select>
             </div>
             <div>
-              <label className="block text-[10px] uppercase font-bold mb-1">Thalassemia</label>
+              <label className="block text-[12px]  font-bold mb-1">Thalassemia</label>
               <select name="thal" value={formData.thal} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
                 <option value="">Select defect mapping</option>
                 <option value="normal">Normal blood flow</option>

@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/.vite/
+**/dist/
+**/.git/
+**/.claude/
+**/.codex/
+**/.agents/
+**/__pycache__/
+**/*.pyc

@@ -1,0 +1,41 @@
+services:
+  model:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - ./model:/app/model:ro
+      - ./requirements.txt:/app/requirements.txt:ro
+      - ./backend/ModelService/model_api.py:/app/model_api.py:ro
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt scikit-learn==1.7.2 fastapi uvicorn
+      && python -m uvicorn model_api:app --host 0.0.0.0 --port 8000"
+    ports:
+      - "8000:8000"
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    depends_on:
+      - model
+    ports:
+      - "5080:8080"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ModelClient__BaseUrl: http://model:8000
+      ModelClient__PredictPath: ${MODEL_PREDICT_PATH:-/predict}
+
+  frontend:
+    image: node:22-alpine
+    working_dir: /app/frontend
+    volumes:
+      - ./frontend:/app/frontend
+      - frontend_node_modules:/app/frontend/node_modules
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0"
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+
+volumes:
+  frontend_node_modules:

@@ -21,11 +21,7 @@ def predict_one_model(model_name: str, payload: dict[str, Any]) -> dict[str, Any
 
     disease_probability = float(model_artifact["pipeline"].predict_proba(pd.DataFrame([model_input]))[0, 1])
 
-    return {
-        "model": model_name,
-        "disease_probability": disease_probability,
-        "prediction": int(disease_probability >= 0.5),
-    }
+    return {"model": model_name, "disease_probability": disease_probability, "prediction": int(disease_probability >= 0.5)}
 
 def predict(payloads: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
     return {

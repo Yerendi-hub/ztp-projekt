@@ -67,8 +67,10 @@ def make_pipeline(numeric_features: list[str], categorical_features: list[str]) 
     return Pipeline([("preprocessor", preprocessor), ("model", MLPClassifier(hidden_layer_sizes = (64, 32), max_iter = 120, early_stopping = True,
                                                                              random_state = RANDOM_STATE))])
 
-def train_model(model_name: str, data: pd.DataFrame, target: str, features: list[str], numeric_features: list[str], categorical_features: list[str]) -> dict[str, float]:
-    features_train, features_test, target_train, target_test = train_test_split(data[features], data[target], test_size = 0.2, stratify = data[target], random_state = RANDOM_STATE)
+def train_model(model_name: str, data: pd.DataFrame, target: str, features: list[str], numeric_features: list[str], 
+                categorical_features: list[str]) -> dict[str, float]:
+    features_train, features_test, target_train, target_test = train_test_split(data[features], data[target], test_size = 0.2, 
+                                                                                stratify = data[target], random_state = RANDOM_STATE)
 
     pipeline = make_pipeline(numeric_features, categorical_features)
     pipeline.fit(features_train, target_train)

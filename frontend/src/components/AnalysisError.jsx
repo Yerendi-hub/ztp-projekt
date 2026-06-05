@@ -11,7 +11,7 @@ export default function AnalysisError({ errorMessage, onReset }) {
           <AlertTriangle className="w-6 h-6 text-[#f4f1e3]" />
         </div>
         <div>
-          <h2 className="text-lg font-black tracking-widest text-[#a63a3a] uppercase">
+          <h2 className="text-base font-black tracking-widest text-[#a63a3a] ">
             [ Critical failure // error 503 ]
           </h2>
           <p className="text-[10px] opacity-70">Core diagnostic engine interrupted</p>

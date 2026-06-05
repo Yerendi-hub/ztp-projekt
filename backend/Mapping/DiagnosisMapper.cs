@@ -38,7 +38,7 @@ public static class DiagnosisMapper
         new("Tobacco smoking history", FormatValue(patient.SmokingHistory), null),
         new("HbA1c level", Round(patient.HemoglobinA1cLevel), "%"),
         new("Blood glucose level", Round(patient.BloodGlucoseMgDl), "mg/dL"),
-        new("Fasting blood sugar", FormatValue(patient.FastingBloodSugar), null),
+        new("Fasting blood sugar level", FormatValue(patient.FastingBloodSugar), null),
         new("Total cholesterol", Round(patient.CholesterolMgDl), "mg/dL"),
         new("Chest pain specification", FormatValue(patient.ChestPain), null),
         new("Resting blood pressure", Round(patient.RestingBloodPressureMmHg), "mmHg"),
@@ -47,7 +47,7 @@ public static class DiagnosisMapper
         new("Exercise induced angina", FormatValue(patient.ExerciseInducedAngina), null),
         new("ST Depression", Round(patient.StDepressionInducedByExerciseRelativeToRest), "mm"),
         new("Peak exercise ST segment slope", FormatValue(patient.SlopeOfPeakExerciseStSegment), null),
-        new("Major vessels", patient.NumberOfMajorVesselsColoredByFluoroscopy, null),
+        new("Colored vessels count", patient.NumberOfMajorVesselsColoredByFluoroscopy, null),
         new("Thalassemia", FormatValue(patient.Thal), null)
     ];
 

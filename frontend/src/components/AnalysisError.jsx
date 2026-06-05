@@ -14,7 +14,7 @@ export default function AnalysisError({ errorMessage, onReset }) {
           <h2 className="text-lg font-black tracking-widest text-[#a63a3a] uppercase">
             [ Critical failure // error 503 ]
           </h2>
-          <p className="text-[10px] opacity-70">Core Diagnostic Engine Interrupted</p>
+          <p className="text-[10px] opacity-70">Core diagnostic engine interrupted</p>
         </div>
       </div>
 

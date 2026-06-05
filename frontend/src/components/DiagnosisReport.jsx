@@ -20,6 +20,11 @@ export default function DiagnosisReport({
     visibleUsedData.length
   );
   const confidencePercent = Math.min(40 + (filledFields * 3.5), 99);
+  const hasLowInputCompleteness = filledFields < 6;
+  const formatUsedDataValue = (value) =>
+    typeof value === 'string' && value.length > 0
+      ? value.charAt(0).toLowerCase() + value.slice(1)
+      : value;
 
   let status = 'STABLE';
   let statusColor = 'text-green-700 border-green-700';
@@ -57,7 +62,7 @@ export default function DiagnosisReport({
 
         <div className="sm:col-span-3 border border-[#2d4a43] p-3 bg-white/50 flex flex-col justify-center">
           <div className="flex justify-between text-[14px] font-bold mb-1 opacity-70">
-            <span>Confidence Level</span>
+            <span>Confidence level</span>
             <span>{Math.round(confidencePercent)}%</span>
           </div>
           <div className="w-full h-5 border border-[#2d4a43] bg-[#e2decb]/40 p-0.5">
@@ -68,6 +73,15 @@ export default function DiagnosisReport({
           </div>
         </div>
       </div>
+
+      {hasLowInputCompleteness && (
+        <div className="border border-amber-700 bg-amber-50 p-3 mb-4 text-[12px] leading-relaxed text-amber-900 flex gap-2 items-start">
+          <ShieldAlert className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+          <span>
+            <strong>Low input completeness:</strong> prediction confidence is limited because only {filledFields} patient parameter{filledFields === 1 ? '' : 's'} were available.
+          </span>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         <div className="border border-[#2d4a43] p-3 bg-white/50 flex justify-between items-center">
@@ -91,7 +105,7 @@ export default function DiagnosisReport({
             <div key={item.label} className="flex justify-between gap-3 border-b border-[#2d4a43]/10 pb-1">
               <span className="font-bold opacity-70">{item.label}</span>
               <span className="text-right font-semibold">
-                {item.value}{item.unit ? ` ${item.unit}` : ''}
+                {formatUsedDataValue(item.value)}{item.unit ? ` ${item.unit}` : ''}
               </span>
             </div>
           ))}

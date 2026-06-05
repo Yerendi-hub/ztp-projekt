@@ -95,7 +95,7 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
               <option value="never">Never smoked</option>
               <option value="former">Former smoker (quit)</option>
               <option value="current">Current smoker</option>
-              <option value="not_current">Not current (occasional)</option>
+              <option value="not_current">Occasional smoker</option>
               <option value="ever">Ever smoked (in history)</option>
               <option value="no_info">No information available</option>
             </select>
@@ -118,11 +118,11 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
               <label className="block text-[12px]  font-bold mb-1">Fasting blood sugar level</label>
-              <input type="number" name="fastingSugar" value={formData.fastingSugar} onChange={handleChange} disabled={isAnalyzing} placeholder="Fasting Sugar (mg/dL)" className={fieldClasses} />
+              <input type="number" name="fastingSugar" value={formData.fastingSugar} onChange={handleChange} disabled={isAnalyzing} placeholder="Fasting sugar (mg/dL)" className={fieldClasses} />
             </div>
             <div>
               <label className="block text-[12px]  font-bold mb-1">Total cholesterol</label>
-              <input type="number" name="cholesterol" value={formData.cholesterol} onChange={handleChange} disabled={isAnalyzing} placeholder="Serum Cholesterol (mg/dL)" className={fieldClasses} />
+              <input type="number" name="cholesterol" value={formData.cholesterol} onChange={handleChange} disabled={isAnalyzing} placeholder="Serum cholesterol (mg/dL)" className={fieldClasses} />
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
                 <option value="asymptomatic">Asymptomatic (no pain)</option>
                 <option value="typical">Typical angina (classic heart pain)</option>
                 <option value="atypical">Atypical angina</option>
-                <option value="non-anginal">Non-Anginal pain (other chest pain)</option>
+                <option value="non-anginal">Non-anginal pain (other chest pain)</option>
               </select>
             </div>
             <div>
@@ -151,8 +151,8 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
             <select name="restingEcg" value={formData.restingEcg} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
               <option value="">Select observation</option>
               <option value="normal">Normal baseline</option>
-              <option value="st-t">ST-T Wave abnormality</option>
-              <option value="hypertrophy">Left Ventricular Hypertrophy (LVH)</option>
+              <option value="st-t">ST-T wave abnormality</option>
+              <option value="hypertrophy">Left ventricular hypertrophy (LVH)</option>
             </select>
           </div>
         </div>
@@ -168,19 +168,19 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
             <div>
               <label className="block text-[12px]  font-bold mb-1">Exercise induced angina</label>
               <select name="exerciseAngina" value={formData.exerciseAngina} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
-                <option value="">Select pain level triggered by exercise</option>
-                <option value="true">True (Yes, pain triggered)</option>
-                <option value="false">False (No pain triggered)</option>
+                <option value="">Select if pain was triggered by exercise</option>
+                <option value="true">Yes, pain triggered</option>
+                <option value="false">No, pain not triggered</option>
               </select>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
             <div>
-              <label className="block text-[12px]  font-bold mb-1">ST Depression (relative to rest)</label>
-              <input type="number" step="0.1" name="stDepression" value={formData.stDepression} onChange={handleChange} disabled={isAnalyzing} placeholder="Oldpeak Value" className={fieldClasses} />
+              <label className="block text-[12px]  font-bold mb-1">ST depression (relative to rest)</label>
+              <input type="number" step="0.1" name="stDepression" value={formData.stDepression} onChange={handleChange} disabled={isAnalyzing} placeholder="Oldpeak value" className={fieldClasses} />
             </div>
             <div>
-              <label className="block text-[12px]  font-bold mb-1">Peak Exercise ST Segment Slope</label>
+              <label className="block text-[12px]  font-bold mb-1">Peak exercise ST segment slope</label>
               <select name="stSlope" value={formData.stSlope} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
                 <option value="">Select slope profile</option>
                 <option value="upsloping">Upsloping (normal / stable)</option>
@@ -191,13 +191,13 @@ export default function PatientForm({ onSubmit, onReset, isAnalyzing, uploadedFi
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             <div>
-              <label className="block text-[12px]  font-bold mb-1">Major vessels (Fluoroscopy)</label>
+              <label className="block text-[12px]  font-bold mb-1">Major vessels (fluoroscopy)</label>
               <select name="majorVessels" value={formData.majorVessels} onChange={handleChange} disabled={isAnalyzing} className={fieldClasses}>
                 <option value="">Select colored vessels count</option>
-                <option value="0">0 Vessels highlighted</option>
-                <option value="1">1 Vessel highlighted</option>
-                <option value="2">2 Vessels highlighted</option>
-                <option value="3">3 Vessels highlighted</option>
+                <option value="0">0 vessels highlighted</option>
+                <option value="1">1 vessel highlighted</option>
+                <option value="2">2 vessels highlighted</option>
+                <option value="3">3 vessels highlighted</option>
               </select>
             </div>
             <div>

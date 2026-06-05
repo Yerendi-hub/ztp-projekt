@@ -91,7 +91,7 @@ export default function App() {
               </button>
               <div>
                 <h1 className="text-xl md:text-2xl font-bold tracking-wider leading-none mb-1">Dr.Byte</h1>
-                <p className="text-[10px] md:text-xs opacity-70">AI-Powered Medical Analysis Terminal</p>
+                <p className="text-[10px] md:text-xs opacity-70">AI-powered medical analysis terminal</p>
               </div>
             </div>
             <Advertisement />

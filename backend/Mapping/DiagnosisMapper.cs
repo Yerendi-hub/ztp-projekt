@@ -31,27 +31,30 @@ public static class DiagnosisMapper
     private static IReadOnlyList<UsedPatientData> ToUsedData(NormalizedPatientParameters patient) =>
     [
         new("Age", patient.Age, "years"),
-        new("Biological sex", patient.Sex, null),
+        new("Biological sex", FormatValue(patient.Sex), null),
         new("Weight", Round(patient.WeightKg), "kg"),
         new("Height", Round(patient.HeightCm), "cm"),
         new("BMI", Round(patient.Bmi), "kg/m2"),
-        new("Tobacco smoking history", patient.SmokingHistory, null),
+        new("Tobacco smoking history", FormatValue(patient.SmokingHistory), null),
         new("HbA1c level", Round(patient.HemoglobinA1cLevel), "%"),
         new("Blood glucose level", Round(patient.BloodGlucoseMgDl), "mg/dL"),
-        new("Fasting blood sugar", patient.FastingBloodSugar, null),
+        new("Fasting blood sugar", FormatValue(patient.FastingBloodSugar), null),
         new("Total cholesterol", Round(patient.CholesterolMgDl), "mg/dL"),
-        new("Chest pain specification", patient.ChestPain, null),
+        new("Chest pain specification", FormatValue(patient.ChestPain), null),
         new("Resting blood pressure", Round(patient.RestingBloodPressureMmHg), "mmHg"),
-        new("Resting ECG", patient.EcgObservationAtRestingCondition, null),
+        new("Resting ECG", FormatValue(patient.EcgObservationAtRestingCondition), null),
         new("Maximum heart rate", Round(patient.MaximumHeartRateAchieved), "bpm"),
-        new("Exercise induced angina", patient.ExerciseInducedAngina, null),
+        new("Exercise induced angina", FormatValue(patient.ExerciseInducedAngina), null),
         new("ST Depression", Round(patient.StDepressionInducedByExerciseRelativeToRest), "mm"),
-        new("Peak exercise ST segment slope", patient.SlopeOfPeakExerciseStSegment, null),
+        new("Peak exercise ST segment slope", FormatValue(patient.SlopeOfPeakExerciseStSegment), null),
         new("Major vessels", patient.NumberOfMajorVesselsColoredByFluoroscopy, null),
-        new("Thalassemia", patient.Thal, null)
+        new("Thalassemia", FormatValue(patient.Thal), null)
     ];
 
     private static string ToLabel(bool detected) => detected ? "Yes" : "No";
+
+    private static string? FormatValue(string? value) =>
+        string.IsNullOrEmpty(value) ? value : char.ToLowerInvariant(value[0]) + value[1..];
 
     private static double ToPercent(double probability) =>
         Math.Round(Math.Clamp(probability, 0, 1) * 100, 2, MidpointRounding.AwayFromZero);

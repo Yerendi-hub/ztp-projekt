@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+  <title id="title">Heart disease confusion matrix</title>
+  <desc id="desc">Confusion matrix for the heart disease model: 60 true negatives, 22 false positives, 14 false negatives, and 88 true positives.</desc>
+  <rect width="720" height="420" rx="18" fill="#f8f5ec"/>
+  <text x="360" y="44" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="#343a34">Heart disease</text>
+  <text x="360" y="76" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" fill="#6f6f6f">Confusion matrix</text>
+
+  <text x="388" y="112" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#5f625f">Predicted</text>
+  <text x="48" y="262" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#5f625f" transform="rotate(-90 48 262)">Actual</text>
+
+  <rect x="164" y="132" width="178" height="56" rx="10" fill="#6f6f6f"/>
+  <rect x="350" y="132" width="178" height="56" rx="10" fill="#6f6f6f"/>
+  <text x="253" y="166" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#f8f5ec">No disease</text>
+  <text x="439" y="166" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" fill="#f8f5ec">Disease</text>
+
+  <rect x="76" y="196" width="80" height="86" rx="10" fill="#6f6f6f"/>
+  <rect x="76" y="290" width="80" height="86" rx="10" fill="#6f6f6f"/>
+  <text x="116" y="232" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#f8f5ec">No</text>
+  <text x="116" y="252" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#f8f5ec">disease</text>
+  <text x="116" y="341" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#f8f5ec">Disease</text>
+
+  <rect x="164" y="196" width="178" height="86" rx="12" fill="#6f9f73"/>
+  <rect x="350" y="196" width="178" height="86" rx="12" fill="#f4efe2" stroke="#ded6c3"/>
+  <rect x="164" y="290" width="178" height="86" rx="12" fill="#f4efe2" stroke="#ded6c3"/>
+  <rect x="350" y="290" width="178" height="86" rx="12" fill="#6f9f73"/>
+
+  <text x="253" y="232" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff">60</text>
+  <text x="253" y="258" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#ffffff">True negative</text>
+  <text x="439" y="232" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#5f625f">22</text>
+  <text x="439" y="258" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#5f625f">False positive</text>
+  <text x="253" y="326" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#5f625f">14</text>
+  <text x="253" y="352" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#5f625f">False negative</text>
+  <text x="439" y="326" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff">88</text>
+  <text x="439" y="352" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#ffffff">True positive</text>
+
+  <rect x="560" y="212" width="22" height="22" rx="5" fill="#6f9f73"/>
+  <text x="592" y="229" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#5f625f">Correct</text>
+  <rect x="560" y="248" width="22" height="22" rx="5" fill="#f4efe2" stroke="#ded6c3"/>
+  <text x="592" y="265" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#5f625f">Incorrect</text>
+</svg>

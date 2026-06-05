@@ -8,11 +8,11 @@ Dr.Byte is a diagnostic application that combines a React frontend, an ASP.NET C
 
 | Layer | Technology | Purpose |
 |---|---|---|
-| Frontend | ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=111827) ![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwindcss&logoColor=white) ![lucide-react](https://img.shields.io/badge/lucide--react-0F172A) | Patient form, PDF upload flow, risk report UI |
-| Backend | ![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-8-512BD4?logo=dotnet&logoColor=white) | REST API, data validation, unit normalization, model integration |
-| Model service | ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white) ![Uvicorn](https://img.shields.io/badge/Uvicorn-111827) | HTTP adapter for persisted ML artifacts |
-| Machine learning | ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white) ![pandas](https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white) ![joblib](https://img.shields.io/badge/joblib-111827) | Preprocessing, pipeline serialization, models training, prediction |
-| Runtime | ![Docker Compose](https://img.shields.io/badge/Docker_Compose-2496ED?logo=docker&logoColor=white) | One-command local startup for frontend, backend, and model service |
+| Frontend | ![React](https://img.shields.io/badge/React-19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E) ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white) ![lucide-react](https://img.shields.io/badge/lucide--react-111827?style=for-the-badge&logo=lucide&logoColor=white) | Patient form, PDF upload flow, risk report UI |
+| Backend | ![ASP.NET Core](https://img.shields.io/badge/ASP.NET_Core-8-512BD4?style=for-the-badge&logo=dotnet&logoColor=white) | REST API, data validation, unit normalization, model integration |
+| Model service | ![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=FFD43B) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white) ![Uvicorn](https://img.shields.io/badge/Uvicorn-111827?style=for-the-badge&logo=gunicorn&logoColor=white) | HTTP adapter for persisted ML artifacts |
+| Machine learning | ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white) ![pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white) ![joblib](https://img.shields.io/badge/joblib-111827?style=for-the-badge) | Preprocessing, pipeline serialization, models training, prediction |
+| Runtime | ![Docker Compose](https://img.shields.io/badge/Docker_Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white) | One-command local startup for frontend, backend, and model service |
 
 ## Features
 
@@ -144,43 +144,12 @@ Features used for the metrics above:
 
 #### Diabetes
 
-<table>
-  <tr>
-    <th bgcolor="#f4efe2"><font color="#5f625f">Actual \ Predicted</font></th>
-    <th bgcolor="#6f6f6f"><font color="#f8f5ec">No disease</font></th>
-    <th bgcolor="#6f6f6f"><font color="#f8f5ec">Disease</font></th>
-  </tr>
-  <tr>
-    <th bgcolor="#6f6f6f"><font color="#f8f5ec">No disease</font></th>
-    <td bgcolor="#6f9f73" align="center"><font color="#f8f5ec"><strong>18 280</strong><br />True negative</font></td>
-    <td bgcolor="#f4efe2" align="center"><font color="#5f625f"><strong>17</strong><br />False positive</font></td>
-  </tr>
-  <tr>
-    <th bgcolor="#6f6f6f"><font color="#f8f5ec">Disease</font></th>
-    <td bgcolor="#f4efe2" align="center"><font color="#5f625f"><strong>551</strong><br />False negative</font></td>
-    <td bgcolor="#6f9f73" align="center"><font color="#f8f5ec"><strong>1 149</strong><br />True positive</font></td>
-  </tr>
-</table>
+![Diabetes confusion matrix](docs/assets/confusion-matrix-diabetes.svg)
 
 #### Heart disease
 
-<table>
-  <tr>
-    <th bgcolor="#f4efe2"><font color="#5f625f">Actual \ Predicted</font></th>
-    <th bgcolor="#6f6f6f"><font color="#f8f5ec">No disease</font></th>
-    <th bgcolor="#6f6f6f"><font color="#f8f5ec">Disease</font></th>
-  </tr>
-  <tr>
-    <th bgcolor="#6f6f6f"><font color="#f8f5ec">No disease</font></th>
-    <td bgcolor="#6f9f73" align="center"><font color="#f8f5ec"><strong>60</strong><br />True negative</font></td>
-    <td bgcolor="#f4efe2" align="center"><font color="#5f625f"><strong>22</strong><br />False positive</font></td>
-  </tr>
-  <tr>
-    <th bgcolor="#6f6f6f"><font color="#f8f5ec">Disease</font></th>
-    <td bgcolor="#f4efe2" align="center"><font color="#5f625f"><strong>14</strong><br />False negative</font></td>
-    <td bgcolor="#6f9f73" align="center"><font color="#f8f5ec"><strong>88</strong><br />True positive</font></td>
-  </tr>
-</table>
+![Diabetes confusion matrix](docs/assets/confusion-matrix-heart-disease.svg)
+
 
 Additional input-completeness tests showed that the diabetes model is especially dependent on metabolic data. With only `age` and `sex`, the model may still show high accuracy due to class imbalance, but at the default `0.5` threshold it does not reliably detect positive cases. For this reason, the frontend displays a `Low input completeness` warning when a report is based on too few parameters.
 
@@ -206,9 +175,9 @@ Additional input-completeness tests showed that the diabetes model is especially
   <tr>
     <td align="center">
       <a href="https://github.com/zuzannabrauer">
-        <img src="https://github.com/zuzannabrauer.png?" width="96" height="96" alt="Zuzanna Brauer" />
+        <img src="https://github.com/zuzannabrauer.png?size=120" width="96" height="96" alt="Zuzanna Brauer" />
         <br />
-        <font color="#bd2363"><strong>Zuzanna Brauer</strong></font>
+        <strong>Zuzanna Brauer</strong>
         <br />
       </a>
     </td>
@@ -216,7 +185,7 @@ Additional input-completeness tests showed that the diabetes model is especially
       <a href="https://github.com/thecookedhan">
         <img src="https://github.com/thecookedhan.png?size=120" width="96" height="96" alt="Maja Chlipała" />
         <br />
-        <font color="#ca64bd"><strong>Maja Chlipała</strong></font>
+        <strong>Maja Chlipała</strong>
         <br />
       </a>
     </td>
@@ -224,7 +193,7 @@ Additional input-completeness tests showed that the diabetes model is especially
       <a href="https://github.com/Yerendi-hub">
         <img src="https://github.com/Yerendi-hub.png?size=120" width="96" height="96" alt="Konrad Kowalczyk" />
         <br />
-        <font color="#512bd4"><strong>Konrad Kowalczyk</strong></font>
+        <strong>Konrad Kowalczyk</strong>
         <br />
       </a>
     </td>

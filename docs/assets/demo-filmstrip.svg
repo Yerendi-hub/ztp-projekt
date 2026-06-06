@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="180" viewBox="0 0 480 180" role="img" aria-labelledby="title desc">
+  <title id="title">Dr.Byte recorded demo</title>
+  <desc id="desc">A filmstrip-style preview linking to the recorded application demo.</desc>
+  <rect width="480" height="180" rx="16" fill="#2f4f3f"/>
+  <rect x="22" y="22" width="436" height="110" rx="10" fill="#f2ead8"/>
+  <rect x="48" y="44" width="92" height="66" rx="7" fill="#8fb996"/>
+  <rect x="154" y="44" width="92" height="66" rx="7" fill="#d8c99b"/>
+  <rect x="260" y="44" width="92" height="66" rx="7" fill="#6b8f71"/>
+  <rect x="366" y="44" width="66" height="66" rx="7" fill="#c7b783"/>
+  <circle cx="240" cy="77" r="28" fill="#f7f1e3"/>
+  <path d="M231 59v36l30-18-30-18z" fill="#2f4f3f"/>
+  <g fill="#f7f1e3">
+    <rect x="30" y="36" width="10" height="14" rx="2"/>
+    <rect x="30" y="62" width="10" height="14" rx="2"/>
+    <rect x="30" y="88" width="10" height="14" rx="2"/>
+    <rect x="30" y="114" width="10" height="14" rx="2"/>
+    <rect x="440" y="36" width="10" height="14" rx="2"/>
+    <rect x="440" y="62" width="10" height="14" rx="2"/>
+    <rect x="440" y="88" width="10" height="14" rx="2"/>
+    <rect x="440" y="114" width="10" height="14" rx="2"/>
+  </g>
+  <rect x="22" y="142" width="436" height="22" rx="6" fill="#f2ead8"/>
+  <text x="240" y="158" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" fill="#2f4f3f">Watch the Dr.Byte demo</text>
+</svg>

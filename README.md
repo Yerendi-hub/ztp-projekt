@@ -196,10 +196,8 @@ Additional input-completeness tests showed that the diabetes model is especially
 
 ## Demo
 
-<video src="dr_byte_demo.mp4" controls width="100%">
-  Your browser does not support embedded videos. You can download the demo from
-  <a href="dr_byte_demo.mp4">dr_byte_demo.mp4</a>.
-</video>
+[![Watch the Dr.Byte demo](docs/assets/demo-filmstrip.svg)](https://drive.google.com/file/d/18aDNnMj4a-uBYWDS9_Fz0i-ZLNRhZA9J/view?usp=drive_link)
+
 
 ## Notes and Limitations
 

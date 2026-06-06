@@ -18,6 +18,7 @@ Dr.Byte is a diagnostic application that combines a React frontend, an ASP.NET C
 
 - Patient form for biometric, metabolic, and cardiovascular parameters;
 - PDF upload endpoint for extracting patient parameters;
+- Test PDF generator for creating lab reports with selected parameters, units, and values inside or outside reference ranges;
 - Backend validation for required fields, numeric ranges, and supported categorical values;
 - Unit normalization for values such as weight, height, glucose, cholesterol, and blood pressure;
 - Diagnosis report with probability scores and recommendations;
@@ -32,15 +33,17 @@ diseases_classifier_app/
 |   |-- Controllers/           # Diagnosis endpoints
 |   |-- Contracts/             # Request/response DTOs
 |   |-- Mapping/               # API response mapping
-|   |-- ModelClient/           # HTTP client for the model service
+|   |-- ModelClient/           # HTTP client for a model service
 |   |-- Parsing/               # PDF parsing, normalization, feature mapping
 |   `-- Validation/            # Patient input validation
+|-- backend.Tests/            # xUnit tests for backend validation, parsing, and mapping
 |-- frontend/                 # React/Vite application
 |-- model/                    
 |   |-- artifacts/             # joblib models and metrics
 |   |-- predict.py             # Prediction entry point
 |   `-- train_models.py        # Models training script
 |-- docs/                     # Backend notes
+|-- tools/rgen/               # Medical lab-report PDF generator
 `-- docker-compose.yaml       # Docker configuration
 ```
 
@@ -68,7 +71,7 @@ Available services:
 | Backend health check | `http://localhost:5080/health` |
 | Model service | `http://localhost:8000` |
 
-Stop the containers:
+Stop containers:
 
 ```powershell
 docker compose down
@@ -99,6 +102,44 @@ python -m uvicorn backend.ModelService.model_api:app --host 0.0.0.0 --port 8000
 ```
 
 Persisted models artifacts were saved with `scikit-learn==1.7.2`. Please use the same version when loading `.joblib` files locally to avoid pipeline issues.
+
+## Tests
+
+Repository includes an xUnit test project in `backend.Tests`. Tests currently cover:
+
+- `PatientInputValidator` required fields, supported categorical values, and numeric range checks;
+- `MedicalUnitNormalizer` conversions for patient metrics and laboratory values;
+- `ModelFeatureParser` mapping from normalized patient parameters to model-ready features;
+- `DiagnosisMapper` response mapping from model-service output to API responses.
+
+Run the backend tests from the project root:
+
+```powershell
+dotnet test backend.Tests
+```
+
+## Test PDF generator
+
+The project includes `rgen`, a medical lab-report PDF generator, in `tools/rgen`. It creates test PDFs with parameters used by a diabetes and heart-disease models.
+
+Run it directly from the project root:
+
+```powershell
+python -m tools.rgen
+```
+
+Useful options:
+
+| Option | Purpose |
+|---|---|
+| `--output PATH` | Save generated PDF to a specific file |
+| `--skip param1 [param2 ...]` | Omit selected parameters |
+| `--skipall [param1 ...]` | Omit all parameters except sex and the listed parameters |
+| `--exceed N` | Generate values that may be up to `N%` outside reference ranges |
+| `--forceexceed N [M]` | Force generate values outside reference ranges |
+| `--PARAM -v VALUE -u UNIT` | Set a fixed value and optional unit for one parameter |
+
+For the full command reference, available parameters and aliases, see `tools/rgen/README.md`.
 
 ## Models pipelines
 
@@ -155,6 +196,11 @@ Additional input-completeness tests showed that the diabetes model is especially
 
 ## Demo
 
+<video src="dr_byte_demo.mp4" controls width="100%">
+  Your browser does not support embedded videos. You can download the demo from
+  <a href="dr_byte_demo.mp4">dr_byte_demo.mp4</a>.
+</video>
+
 ## Notes and Limitations
 
 - The frontend confidence indicator is an input-completeness signal, not a probability of diagnosis correctness.
@@ -162,7 +208,6 @@ Additional input-completeness tests showed that the diabetes model is especially
 
 ## Future development
 
-- Add backend tests for validation, unit normalization, and model-client error handling;
 - Add frontend tests for form submission, the `Low input completeness` warning, and report rendering;
 - Calibrate and tune decision thresholds for the diabetes model;
 - Add model explainability, for example a summary of the most influential features;

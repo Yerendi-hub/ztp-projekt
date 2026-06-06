@@ -25,6 +25,10 @@ Dr.Byte is a diagnostic application that combines a React frontend, an ASP.NET C
 - `Low input completeness` warning when a results are based on a small number of parameters;
 - Educational disclaimer visible in an application UI.
 
+## Demo
+
+[![Watch the Dr.Byte demo](docs/assets/demo-filmstrip.svg)](https://drive.google.com/file/d/18aDNnMj4a-uBYWDS9_Fz0i-ZLNRhZA9J/view?usp=drive_link)
+
 ## Project structure
 
 ```text
@@ -191,13 +195,7 @@ Features used for the metrics above:
 
 ![Diabetes confusion matrix](docs/assets/confusion-matrix-heart-disease.svg)
 
-
 Additional input-completeness tests showed that the diabetes model is especially dependent on metabolic data. With only `age` and `sex`, the model may still show high accuracy due to class imbalance, but at the default `0.5` threshold it does not reliably detect positive cases. For this reason, the frontend displays a `Low input completeness` warning when a report is based on too few parameters.
-
-## Demo
-
-[![Watch the Dr.Byte demo](docs/assets/demo-filmstrip.svg)](https://drive.google.com/file/d/18aDNnMj4a-uBYWDS9_Fz0i-ZLNRhZA9J/view?usp=drive_link)
-
 
 ## Notes and Limitations
 
